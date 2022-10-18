@@ -18,20 +18,16 @@
 // console.log(sortNames(names, 'desc'))
 
 // const sortBySumOfDigit= (array)=>{
+//
 //     return array.sort((digit_a, digit_b)=>{
 //
-//         let sum_a = 0,
-//             sum_b = 0;
-//
-//         for (const digit of String(digit_a)){
-//             sum_a += +digit
-//         }
+//         const sum_a = [...'' + digit_a].reduce((sum,val)=>sum+= +val, 0)
 //         console.log(sum_a)
-//         for (const digit of String(digit_b)){
-//             sum_b += +digit
-//         }
+//
+//         const sum_b = [...'' + digit_b].reduce((sum,val)=>sum+= +val, 0)
 //         console.log(sum_b)
-//         return (sum_a > sum_b) ? (sum_a == sum_b)?  0 :  1 : -1 // if a < b => return -1, otherwise check if a != b => return 1(false), or 0(true)
+//
+//         return (sum_a > sum_b) ? 1 : -1
 //     })
 // }
 //
@@ -39,15 +35,15 @@
 // console.log(sortBySumOfDigit(random_numbers))   // [1, 2, 13, 4321, 467]
 
 
-const shuffle = (array)=>{
-    array.sort(function(a, b) {
-        return Math.random() - 0.5
-    });
-}
-
-let random_numbers = [13, 467, 2, 9, 1, 4321]
-shuffle(random_numbers)
-console.log(random_numbers)
+// const shuffle = (array)=>{
+//     array.sort(function(a, b) {
+//         return Math.random() - 0.5
+//     });
+// }
+//
+// let random_numbers = [13, 467, 2, 9, 1, 4321]
+// shuffle(random_numbers)
+// console.log(random_numbers)
 
 // const STATUSES = {
 //     ONLINE: 'online',
@@ -65,14 +61,11 @@ console.log(random_numbers)
 // }];
 //
 // const getUsersStatuses = (obj) =>{
-//     users.reduce((user)=>{
-//         if (user.status == STATUSES.ONLINE) num_online++;
-//     })
-//     return {
-//         usersOnline: num_online,
-//         usersOffline: obj.length - num_online,
-//     }
+//     const online = obj.reduce((count, obj)=>{
+//         if(obj.status==STATUSES.ONLINE)  count += 1
+//         return count
+//     }, 0)
+//     return {usersOnline: online, usersOffline: obj.length - online}
 // }
-
+//
 // console.log(getUsersStatuses(users)); // { usersOnline: 2, usersOffline: 1 }
-
