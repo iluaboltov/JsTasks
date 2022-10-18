@@ -1,15 +1,12 @@
 //1
 
-console.log(('b' + 'a' + + 'a' + 'a').toLowerCase())
-const isString = (input)=>{
-    return typeof(input) === "string" ? true : false
-}
+const isString = input => typeof input === "string"
+
 console.log(isString(["fsd"]), isString("fsd"))
 
 //2
-const isEmpty = (input)=>{
-    return input.trim().length > 0 ? true : false
-}
+const isEmpty = input => !input.trim().length
+
 console.log(isEmpty("   "), isEmpty("fdf"))
 
 //3
@@ -37,7 +34,7 @@ const emailProtection = (input) =>{
     let accessToBlur = false;
 
     for(let letter of input){
-        if(letter === "_"){
+        if(letter === "_" || letter === "."){
             accessToBlur = true;
         }
         if(letter === "@"){
@@ -51,15 +48,13 @@ const emailProtection = (input) =>{
     }
     return protectedEmail
 }
-console.log(emailProtection("robin_singh@example.com"))
+console.log(emailProtection("robin.singh@example.com"))
 
 //7
 const strToParametr = (input)=>{
-    let array = input.split(" ")
-    array.map((char, index)=>{array[index] = char.toLowerCase()})
-    return array.join("-")
+    return input.replaceAll(" ", "-").toLowerCase()
 }
-console.log(strToParametr("Robin Singh from USA."))
+console.log(strToParametr("Robin Singh from USA"))
 
 //8
 const capitalize = (input)=>{
@@ -68,13 +63,11 @@ const capitalize = (input)=>{
 console.log(capitalize("js string exercises"))
 
 //9
-const capitilizeEveryWord = (input)=>{
-    let array = input.split(" ")
-    array.map((element, index)=>{
-        array[index] = element[0].toUpperCase() + element.slice(1)
-    })
-    return array.join(" ")
-}
+const capitilizeEveryWord = string =>
+    string
+        .split(" ")
+        .map(capitalize)
+        .join(" ");
 console.log(capitilizeEveryWord("js string exercises"))
 
 //10
@@ -96,10 +89,10 @@ const swapcase = (input)=>{
 console.log(swapcase("AaBbc"))
 
 //11
-const camelize = ()=>{
-    return str.replace(/\W+(.)/g, (match, chr)=>
-    {
-        return chr.toUpperCase();
-    });
-}
-console.log(camelize("JavaScript Exercises"))
+// const camelize = ()=>{
+//     return str.replace(/\W+(.)/g, (match, chr)=>
+//     {
+//         return chr.toUpperCase();
+//     });
+// }
+// console.log(camelize("JavaScript Exercises"))
